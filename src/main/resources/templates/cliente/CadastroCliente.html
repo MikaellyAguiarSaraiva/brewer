@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="layout/LayoutPadrao">
+
+<head>
+<title>Cadastro de cliente</title>
+</head>
+
+<body>
+	<section layout:fragment="conteudo">
+		<div class="page-header">
+			<div class="container-fluid">
+				<h1>Cadastro de cliente</h1>
+			</div>
+		</div>
+
+		<div class="container-fluid">
+
+			<!-- 				<div class="alert  alert-danger  alert-dismissible" role="alert"> -->
+			<!-- 					<button type="button" class="close" data-dismiss="alert" aria-label="Close"> -->
+			<!-- 						<span aria-hidden="true">&times;</span> -->
+			<!-- 					</button> -->
+			<!-- 					<i class="fa  fa-exclamation-circle"></i> -->
+			<!-- 					Já existe um produto com o nome informado. -->
+			<!-- 				</div> -->
+
+			<form method="POST" th:object="${cliente}" class="form-vertical  js-form-loading">
+				<div class="row">
+					<div class="col-sm-12 form-group">
+						<label for="nome" class="control-label">
+							Nome
+							<span class="text-muted">*</span>
+						</label>
+						<input th:field="*{nome}" type="text" class="form-control" />
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-lg-4 col-sm-8 form-group">
+						<label for="tipoPessoa" class="control-label">
+							Tipo pessoa
+							<span class="text-muted">*</span>
+						</label>
+						<div>
+							<div class="radio radio-inline">
+								<input type="radio" name="tipoPessoa">
+								<label>Física</label>
+							</div>
+							<div class="radio radio-inline">
+								<input type="radio" name="tipoPessoa">
+								<label>Juridica</label>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-sm-8 form-group">
+						<label for="cpfCnpj" class="control-label">
+							CPF/CNPJ
+							<span class="text-muted">*</span>
+						</label>
+						<input th:field="*{cpfCnpj}" type="text" class="form-control" />
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-sm-4 form-group">
+						<label for="telefone" class="control-label">
+							Telefone
+							<span class="text-muted">*</span>
+						</label>
+						<input th:field="*{telefone}" type="text" class="form-control" />
+					</div>
+
+					<div class="col-sm-8 form-group">
+						<label for="email" class="control-label">
+							E-mail
+							<span class="text-muted">*</span>
+						</label>
+						<input th:field="*{email}" type="text" class="form-control" />
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-sm-4 form-group">
+						<label for="lagradouro" class="control-label">
+							Lagradouro
+							<span class="text-muted">*</span>
+						</label>
+						<input th:field="*{lagradouro}" type="text" class="form-control" />
+					</div>
+
+					<div class="col-sm-4 form-group">
+						<label for="email" class="control-label">
+							E-mail
+							<span class="text-muted">*</span>
+						</label>
+						<input th:field="*{email}" type="text" class="form-control" />
+					</div>
+
+					<div class="col-sm-4 form-group">
+						<label for="complemento" class="control-label">
+							Complemento
+							<span class="text-muted">*</span>
+						</label>
+						<input th:field="*{complemento}" type="text" class="form-control" />
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-sm-4 form-group">
+						<label for="cep" class="control-label">
+							Cep
+							<span class="text-muted">*</span>
+						</label>
+						<input th:field="*{cep}" type="text" class="form-control" />
+					</div>
+
+					<div class="col-sm-4 form-group">
+						<label for="estado" class="control-label">
+							Estado
+							<span class="text-muted">*</span>
+						</label>
+						<select id="estado" class="form-control">
+							<option value="">SELECIONE O ESTADO</option>
+						</select>
+					</div>
+
+					<div class="col-sm-4 form-group">
+						<label for="cidade" class="control-label">
+							Cidade
+							<span class="text-muted">*</span>
+						</label>
+						<select id="cidade" class="form-control">
+							<option value="">SELECIONE O CIDADE</option>
+						</select>
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<button class="btn  btn-primary" type="submit">Salvar</button>
+				</div>
+			</form>
+		</div>
+	</section>
+</body>
+
+</html>
