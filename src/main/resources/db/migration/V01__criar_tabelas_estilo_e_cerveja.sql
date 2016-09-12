@@ -1,0 +1,23 @@
+CREATE TABLE ESTILO(
+   CODIGO  SERIAL   PRIMARY KEY  NOT NULL,
+   NOME             VARCHAR      NOT NULL
+);
+
+CREATE TABLE CERVEJA(
+   CODIGO                  SERIAL      PRIMARY KEY       NOT NULL,
+   SKY		               VARCHAR						 NOT NULL,
+   NOME		               VARCHAR						 NOT NULL,
+   DESCRICAO               TEXT							 NOT NULL,
+   VALOR	               REAL							 NOT NULL,
+   TEOR_ALCOOLICO 		   REAL							 NOT NULL,
+   COMISAO				   REAL							 NOT NULL,
+   SABOR				   VARCHAR						 NOT NULL,
+   ORIGEM				   VARCHAR						 NOT NULL,
+
+   CODIGO_ESTILO           INT     REFERENCES ESTILO(CODIGO)
+);
+
+INSERT INTO ESTILO (NOME) VALUES ('Amber Lager');
+INSERT INTO ESTILO (NOME) VALUES ('Dark Lager');
+INSERT INTO ESTILO (NOME) VALUES ('Pale Lager');
+INSERT INTO ESTILO (NOME) VALUES ('Pilsner');
