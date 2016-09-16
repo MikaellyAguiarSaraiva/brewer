@@ -1,23 +1,27 @@
-CREATE TABLE ESTILO(
-   CODIGO  SERIAL   PRIMARY KEY  NOT NULL,
-   NOME             VARCHAR      NOT NULL
-);
+CREATE SEQUENCE estilo_seq;
 
-CREATE TABLE CERVEJA(
-   CODIGO                  SERIAL      PRIMARY KEY       NOT NULL,
-   SKY		               VARCHAR						 NOT NULL,
-   NOME		               VARCHAR						 NOT NULL,
-   DESCRICAO               TEXT							 NOT NULL,
-   VALOR	               REAL							 NOT NULL,
-   TEOR_ALCOOLICO 		   REAL							 NOT NULL,
-   COMISAO				   REAL							 NOT NULL,
-   SABOR				   VARCHAR						 NOT NULL,
-   ORIGEM				   VARCHAR						 NOT NULL,
+CREATE TABLE estilo (
+    codigo BIGINT PRIMARY KEY DEFAULT NEXTVAL ('estilo_seq'),
+    nome VARCHAR(50) NOT NULL
+) ;
 
-   CODIGO_ESTILO           INT     REFERENCES ESTILO(CODIGO)
-);
+CREATE SEQUENCE cerveja_seq;
 
-INSERT INTO ESTILO (NOME) VALUES ('Amber Lager');
-INSERT INTO ESTILO (NOME) VALUES ('Dark Lager');
-INSERT INTO ESTILO (NOME) VALUES ('Pale Lager');
-INSERT INTO ESTILO (NOME) VALUES ('Pilsner');
+CREATE TABLE cerveja (
+    codigo BIGINT PRIMARY KEY DEFAULT NEXTVAL ('cerveja_seq'),
+    sku VARCHAR(50) NOT NULL,
+    nome VARCHAR(80) NOT NULL,
+    descricao TEXT NOT NULL,
+    valor DECIMAL(10, 2) NOT NULL,
+    teor_alcoolico DECIMAL(10, 2) NOT NULL,
+    comissao DECIMAL(10, 2) NOT NULL,
+    sabor VARCHAR(50) NOT NULL,
+    origem VARCHAR(50) NOT NULL,
+    codigo_estilo BIGINT NOT NULL,
+    FOREIGN KEY (codigo_estilo) REFERENCES estilo(codigo)
+) ;
+
+INSERT INTO estilo VALUES (1, 'Amber Lager');
+INSERT INTO estilo VALUES (2, 'Dark Lager');
+INSERT INTO estilo VALUES (3, 'Pale Lager');
+INSERT INTO estilo VALUES (4, 'Pilsner');
