@@ -3,9 +3,7 @@ package com.algaworks.brewer.config;
 import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 
-import org.hibernate.validator.resourceloading.PlatformResourceBundleLocator;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.datasource.lookup.JndiDataSourceLookup;
@@ -21,7 +19,6 @@ import com.algaworks.brewer.repository.Cervejas;
 
 @Configuration
 @EnableJpaRepositories(basePackageClasses = Cervejas.class)
-@ComponentScan(basePackageClasses = Cervejas.class)
 public class JPAConfig {
 	
 	@Bean
@@ -35,7 +32,7 @@ public class JPAConfig {
 	public JpaVendorAdapter jpaVendorAdapter() {
 		HibernateJpaVendorAdapter adapter = new HibernateJpaVendorAdapter();
 		adapter.setDatabase(Database.POSTGRESQL);
-		adapter.setShowSql(true);
+		adapter.setShowSql(false);
 		adapter.setGenerateDdl(false);
 		adapter.setDatabasePlatform("org.hibernate.dialect.PostgreSQLDialect");
 		return adapter;
