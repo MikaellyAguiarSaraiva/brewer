@@ -1,5 +1,7 @@
 package com.algaworks.brewer.controller;
 
+import java.util.Optional;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,14 +17,9 @@ import com.algaworks.brewer.repository.Cervejas;
 
 @Controller
 public class CervejasController {
-
-	@Autowired
-	private Cervejas cervejas;
 	
 	@RequestMapping("/cervejas/novo")
-	public String novo(Cerveja cerveja) {
-		cervejas.findAll();  //Apagar...
-		
+	public String novo(Cerveja cerveja) {		
 		return "cerveja/CadastroCerveja";
 	}
 	
