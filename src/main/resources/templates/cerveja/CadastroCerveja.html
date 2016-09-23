@@ -62,6 +62,7 @@
 						<div class="bw-field-action">
 							<select id="estilo" class="form-control">
 								<option value="">SELECIONE O ESTILO</option>
+								<option th:each="estilo : ${estilos}" th:value="${estilo.codigo}" th:text="${estilo.nome}"></option>
 							</select>
 							<div class="bw-field-action__icon">
 								<a href="#" data-toggle="modal" data-target="#modalCadastroRapidoEstilo">
@@ -78,6 +79,7 @@
 						</label>
 						<select id="sabor" class="form-control">
 							<option value="">SELECIONE O SABOR</option>
+							<option th:each="sabor : ${sabores}" th:value="${sabor}" th:text="${sabor.descricao}"></option>
 						</select>
 					</div>
 
@@ -98,13 +100,15 @@
 							<span class="text-muted">*</span>
 						</label>
 						<div>
+							<th:block th:each="origem : ${origens}">
 							<div class="radio radio-inline">
-								<input type="radio" name="origem">
-								<label>Nacional</label>
+								<input id="nacional" type="radio" name="origem">
+								<label for="nacional">Nacional</label>
 							</div>
+							</th:block>
 							<div class="radio radio-inline">
-								<input type="radio" name="origem">
-								<label>Internacional</label>
+								<input id="internacional" type="radio" name="origem">
+								<label for="internacional">Internacional</label>
 							</div>
 						</div>
 					</div>
