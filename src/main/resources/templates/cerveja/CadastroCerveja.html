@@ -15,38 +15,26 @@
 
 		<div class="container-fluid">
 
-			<!-- 				<div class="alert  alert-danger  alert-dismissible" role="alert"> -->
-			<!-- 					<button type="button" class="close" data-dismiss="alert" aria-label="Close"> -->
-			<!-- 						<span aria-hidden="true">&times;</span> -->
-			<!-- 					</button> -->
-			<!-- 					<i class="fa  fa-exclamation-circle"></i> -->
-			<!-- 					Já existe um produto com o nome informado. -->
-			<!-- 				</div> -->
+			<th:block th:include="fragments/MensagemSucesso"></th:block>
 
 			<form method="POST" th:object="${cerveja}" class="form-vertical  js-form-loading">
 
+				<th:block th:include="fragments/MensagensErroValidacao"></th:block>
+
 				<div class="row">
 					<div class="col-sm-2 form-group">
-						<label for="sky" class="control-label">
-							SKU
-							<span class="text-muted">*</span>
-						</label>
-						<input th:field="*{sku}" type="text" class="form-control" />
+						<label for="sky" class="control-label"> SKU <span class="text-muted">*</span>
+						</label> <input th:field="*{sku}" type="text" class="form-control" />
 					</div>
 					<div class="col-sm-10 form-group">
-						<label for="nome" class="control-label">
-							Nome
-							<span class="text-muted">*</span>
-						</label>
-						<input th:field="*{nome}" type="text" class="form-control" />
+						<label for="nome" class="control-label"> Nome <span class="text-muted">*</span>
+						</label> <input th:field="*{nome}" type="text" class="form-control" />
 					</div>
 				</div>
 
 				<div class="row">
 					<div class="col-sm-12 form-group">
-						<label for="descricao" class="control-label">
-							Descrição
-							<span class="text-muted">*</span>
+						<label for="descricao" class="control-label"> Descrição <span class="text-muted">*</span>
 						</label>
 						<textarea th:field="*{descricao}" rows="3" class="form-control"></textarea>
 					</div>
@@ -55,9 +43,7 @@
 
 				<div class="row">
 					<div class="col-sm-3 form-group">
-						<label for="estilo" class="control-label">
-							Estilo
-							<span class="text-muted">*</span>
+						<label for="estilo" class="control-label"> Estilo <span class="text-muted">*</span>
 						</label>
 						<div class="bw-field-action">
 							<select id="estilo" class="form-control" th:field="*{estilo}">
@@ -65,45 +51,35 @@
 								<option th:each="estilo : ${estilos}" th:value="${estilo.codigo}" th:text="${estilo.nome}"></option>
 							</select>
 							<div class="bw-field-action__icon">
-								<a href="#" data-toggle="modal" data-target="#modalCadastroRapidoEstilo">
-									<i class="glyphicon glyphicon-plus-sign bw-glyphicon-large"></i>
+								<a href="#" data-toggle="modal" data-target="#modalCadastroRapidoEstilo"> <i class="glyphicon glyphicon-plus-sign bw-glyphicon-large"></i>
 								</a>
 							</div>
 						</div>
 					</div>
 
 					<div class="col-sm-3 form-group">
-						<label for="sabor" class="control-label">
-							Sabor
-							<span class="text-muted">*</span>
-						</label>
-						<select id="sabor" class="form-control" th:field="*{sabor}">
+						<label for="sabor" class="control-label"> Sabor <span class="text-muted">*</span>
+						</label> <select id="sabor" class="form-control" th:field="*{sabor}">
 							<option value="">SELECIONE O SABOR</option>
 							<option th:each="sabor : ${sabores}" th:value="${sabor}" th:text="${sabor.descricao}"></option>
 						</select>
 					</div>
 
 					<div class="col-sm-3 form-group">
-						<label for="teorAlcoolico" class="control-label">
-							Teor Alcoólico
-							<span class="text-muted">*</span>
+						<label for="teorAlcoolico" class="control-label"> Teor Alcoólico <span class="text-muted">*</span>
 						</label>
 						<div class="input-group">
-							<input id="teorAlcoolico" type="text" class="form-control js-decimal" th:field="*{teorAlcoolico}"/>
-							<span class="input-group-addon" id="teorAlcoolico">%</span>
+							<input id="teorAlcoolico" type="text" class="form-control js-decimal" th:field="*{teorAlcoolico}" /> <span class="input-group-addon" id="teorAlcoolico">%</span>
 						</div>
 					</div>
 
 					<div class="col-lg-3 col-sm-6 form-group">
-						<label for="origem" class="control-label">
-							Origem
-							<span class="text-muted">*</span>
+						<label for="origem" class="control-label"> Origem <span class="text-muted">*</span>
 						</label>
 						<div>
 							<th:block th:each="origem : ${origens}">
 								<div class="radio radio-inline">
-									<input th:id="|id_${origem}|" th:value="${origem}" type="radio" th:field="*{origem}">
-									<label th:for="|id_${origem}|" th:text=${origem.descricao}></label>
+									<input th:id="|id_${origem}|" th:value="${origem}" type="radio" th:field="*{origem}"> <label th:for="|id_${origem}|" th:text=${origem.descricao}></label>
 								</div>
 							</th:block>
 						</div>
@@ -113,33 +89,24 @@
 
 				<div class="row">
 					<div class="col-sm-3 form-group">
-						<label for="valor" class="control-label">
-							Valor
-							<span class="text-muted">*</span>
+						<label for="valor" class="control-label"> Valor <span class="text-muted">*</span>
 						</label>
 						<div class="input-group">
-							<span class="input-group-addon" id="valor">R$</span>
-							<input id="valor" type="text" class="form-control js-decimal" th:field="*{valor}"/>
+							<span class="input-group-addon" id="valor">R$</span> <input id="valor" type="text" class="form-control js-decimal" th:field="*{valor}" />
 						</div>
 					</div>
 
 					<div class="col-sm-3 form-group">
-						<label for="comissao" class="control-label">
-							Comissão
-							<span class="text-muted">*</span>
+						<label for="comissao" class="control-label"> Comissão <span class="text-muted">*</span>
 						</label>
 						<div class="input-group">
-							<input id="comissao" type="text" class="form-control js-decimal" th:field="*{comissao}"/>
-							<span class="input-group-addon" id="comissao">%</span>
+							<input id="comissao" type="text" class="form-control js-decimal" th:field="*{comissao}" /> <span class="input-group-addon" id="comissao">%</span>
 						</div>
 					</div>
 
 					<div class="col-sm-3 form-group">
-						<label for="estoque" class="control-label">
-							Estoque
-							<span class="text-muted">*</span>
-						</label>
-						<input id="estoque" type="text" class="form-control js-plain" th:field="*{quantidadeEstoque}"/>
+						<label for="estoque" class="control-label"> Estoque <span class="text-muted">*</span>
+						</label> <input id="estoque" type="text" class="form-control js-plain" th:field="*{quantidadeEstoque}" />
 					</div>
 				</div>
 
