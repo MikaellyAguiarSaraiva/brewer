@@ -101,15 +101,11 @@
 						</label>
 						<div>
 							<th:block th:each="origem : ${origens}">
-							<div class="radio radio-inline">
-								<input id="nacional" type="radio" name="origem">
-								<label for="nacional">Nacional</label>
-							</div>
+								<div class="radio radio-inline">
+									<input th:id="|id_${origem}|" th:value="${origem}" type="radio" name="origem">
+									<label th:for="|id_${origem}|" th:text=${origem.descricao}></label>
+								</div>
 							</th:block>
-							<div class="radio radio-inline">
-								<input id="internacional" type="radio" name="origem">
-								<label for="internacional">Internacional</label>
-							</div>
 						</div>
 					</div>
 
