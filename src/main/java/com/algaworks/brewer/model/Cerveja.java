@@ -12,6 +12,10 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.DecimalMax;
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotBlank;
@@ -26,34 +30,44 @@ public class Cerveja {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long codigo;
 
-//	
 	@SKY
 	@NotBlank(message = "Sku é obrigatório.")
 	private String sku;
 
-	@NotBlank(message = "Nome é obrigatório.")
+	@NotBlank(message = "O Nome é obrigatório")
+	@Size(max = 50, message = "O tamanho do nome deve esta entre 1 e 50")
 	private String nome;
 
-	@NotBlank
-	@Size(min = 5, max = 10, message = "O tamanho da descrição deve está entre 5 e 10.")
+	@NotBlank(message = "A descrição é obrigatório")
+	@Size(max = 50, message = "O tamanho da descrição deve esta entre 1 e 50")
 	private String descricao;
 
+	@NotNull(message = "O valor é obrigatório")
+	@DecimalMin("0.01")
+	@DecimalMax(value = "9999999.9", message = "O valor da cerveja deve ser menor que R$9.999.999,99")
 	private BigDecimal valor;
 
+	@NotNull(message = "O teor alcoolico é obrigatório")
+	@DecimalMax(value = "100.0", message = "O valor do teor alcoolico deve ser menor que 100")
 	@Column(name = "teor_alcoolico")
 	private BigDecimal teorAlcoolico;
 
+	@DecimalMax(value = "100.0", message = "O comissão deve ser igual ou menor que 100")
 	private BigDecimal comissao;
-
+	
+	@NotNull(message = "A origem é obrigatória")
 	@Enumerated(EnumType.STRING)
 	private Origem origem;
 
+	@NotNull(message = "O sabor é obrigatório")
 	@Enumerated(EnumType.STRING)
 	private Sabor sabor;
 
+	@Max(value = 9999, message = "A quantidade em estoque deve ser menor que 9.999")
 	@Column(name = "quantidade_estoque")
 	private Integer quantidadeEstoque;
 
+	@NotNull(message = "O estilo é obrigatório")
 	@ManyToOne
 	@JoinColumn(name = "codigo_estilo")
 	private Estilo estilo;
