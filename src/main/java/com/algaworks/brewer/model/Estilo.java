@@ -9,6 +9,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.NotBlank;
 
 @Entity
 @Table(name = "estilo")
@@ -20,6 +24,8 @@ public class Estilo implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long codigo;
 
+	@NotBlank(message = "O estilo é obrigatório")
+	@Size(max = 15, message = "O tamanho do nome deve esta entre 1 e 15")
 	private String nome;
 	
 	@OneToMany(mappedBy = "estilo")
