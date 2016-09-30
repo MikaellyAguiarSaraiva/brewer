@@ -22,18 +22,18 @@
 				<th:block th:include="fragments/MensagensErroValidacao"></th:block>
 
 				<div class="row">
-					<div class="col-sm-2 form-group">
+					<div class="col-sm-2 form-group" th:classappend="${#fields.hasErrors('sku')} ? has-error">
 						<label for="sky" class="control-label"> SKU <span class="text-muted">*</span>
 						</label> <input th:field="*{sku}" type="text" class="form-control" />
 					</div>
-					<div class="col-sm-10 form-group">
+					<div class="col-sm-10 form-group" th:classappend="${#fields.hasErrors('nome')} ? has-error">
 						<label for="nome" class="control-label"> Nome <span class="text-muted">*</span>
 						</label> <input th:field="*{nome}" type="text" class="form-control" />
 					</div>
 				</div>
 
 				<div class="row">
-					<div class="col-sm-12 form-group">
+					<div class="col-sm-12 form-group" th:classappend="${#fields.hasErrors('descricao')} ? has-error">
 						<label for="descricao" class="control-label"> Descrição <span class="text-muted">*</span>
 						</label>
 						<textarea th:field="*{descricao}" rows="3" class="form-control"></textarea>
@@ -42,7 +42,7 @@
 
 
 				<div class="row">
-					<div class="col-sm-3 form-group">
+					<div class="col-sm-3 form-group" th:classappend="${#fields.hasErrors('estilo')} ? has-error">
 						<label for="estilo" class="control-label"> Estilo <span class="text-muted">*</span>
 						</label>
 						<div class="bw-field-action">
@@ -57,7 +57,7 @@
 						</div>
 					</div>
 
-					<div class="col-sm-3 form-group">
+					<div class="col-sm-3 form-group" th:classappend="${#fields.hasErrors('sabor')} ? has-error">
 						<label for="sabor" class="control-label"> Sabor <span class="text-muted">*</span>
 						</label> <select id="sabor" class="form-control" th:field="*{sabor}">
 							<option value="">SELECIONE O SABOR</option>
@@ -65,7 +65,7 @@
 						</select>
 					</div>
 
-					<div class="col-sm-3 form-group">
+					<div class="col-sm-3 form-group" th:classappend="${#fields.hasErrors('teorAlcoolico')} ? has-error">
 						<label for="teorAlcoolico" class="control-label"> Teor Alcoólico <span class="text-muted">*</span>
 						</label>
 						<div class="input-group">
@@ -73,7 +73,7 @@
 						</div>
 					</div>
 
-					<div class="col-lg-3 col-sm-6 form-group">
+					<div class="col-lg-3 col-sm-6 form-group" th:classappend="${#fields.hasErrors('origem')} ? has-error">
 						<label for="origem" class="control-label"> Origem <span class="text-muted">*</span>
 						</label>
 						<div>
@@ -88,7 +88,7 @@
 				</div>
 
 				<div class="row">
-					<div class="col-sm-3 form-group">
+					<div class="col-sm-3 form-group" th:classappend="${#fields.hasErrors('valor')} ? has-error">
 						<label for="valor" class="control-label"> Valor <span class="text-muted">*</span>
 						</label>
 						<div class="input-group">
@@ -96,7 +96,7 @@
 						</div>
 					</div>
 
-					<div class="col-sm-3 form-group">
+					<div class="col-sm-3 form-group" th:classappend="${#fields.hasErrors('comissao')} ? has-error">
 						<label for="comissao" class="control-label"> Comissão <span class="text-muted">*</span>
 						</label>
 						<div class="input-group">
@@ -104,7 +104,7 @@
 						</div>
 					</div>
 
-					<div class="col-sm-3 form-group">
+					<div class="col-sm-3 form-group" th:classappend="${#fields.hasErrors('quantidadeEstoque')} ? has-error">
 						<label for="estoque" class="control-label"> Estoque <span class="text-muted">*</span>
 						</label> <input id="estoque" type="text" class="form-control js-plain" th:field="*{quantidadeEstoque}" />
 					</div>

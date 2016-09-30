@@ -52,6 +52,7 @@ public class Cerveja {
 	@Column(name = "teor_alcoolico")
 	private BigDecimal teorAlcoolico;
 
+	@NotNull(message = "A comissão é obrigatória")
 	@DecimalMax(value = "100.0", message = "O comissão deve ser igual ou menor que 100")
 	private BigDecimal comissao;
 	
@@ -63,6 +64,7 @@ public class Cerveja {
 	@Enumerated(EnumType.STRING)
 	private Sabor sabor;
 
+	@NotNull(message = "O estoque é obrigatório")
 	@Max(value = 9999, message = "A quantidade em estoque deve ser menor que 9.999")
 	@Column(name = "quantidade_estoque")
 	private Integer quantidadeEstoque;
