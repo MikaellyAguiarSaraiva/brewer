@@ -57,7 +57,7 @@ public class Cerveja {
 	@NotNull(message = "A comissão é obrigatória")
 	@DecimalMax(value = "100.0", message = "O comissão deve ser igual ou menor que 100")
 	private BigDecimal comissao;
-	
+
 	@NotNull(message = "A origem é obrigatória")
 	@Enumerated(EnumType.STRING)
 	private Origem origem;
@@ -75,7 +75,12 @@ public class Cerveja {
 	@ManyToOne
 	@JoinColumn(name = "codigo_estilo")
 	private Estilo estilo;
-	
+
+	private String foto;
+
+	@Column(name = "content_type")
+	private String contentType;
+
 	@PrePersist
 	@PreUpdate
 	public void prePersistUpdate() {
@@ -170,6 +175,22 @@ public class Cerveja {
 		this.estilo = estilo;
 	}
 
+	public String getFoto() {
+		return foto;
+	}
+
+	public void setFoto(String foto) {
+		this.foto = foto;
+	}
+
+	public String getContentType() {
+		return contentType;
+	}
+
+	public void setContentType(String contentType) {
+		this.contentType = contentType;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -194,7 +215,5 @@ public class Cerveja {
 			return false;
 		return true;
 	}
-	
-	
 
- }
+}
