@@ -54,6 +54,16 @@ public class FotoStorageLocal implements FotoStorage {
 			throw new RuntimeException("Erro lendo a foto temporaria.", e);
 		}
 	}
+	
+	@Override
+	public void salvar(String foto) {
+		try {
+			//move de uma local [temporario] para o [permamente]
+			Files.move(this.localTemporario.resolve(foto), this.local.resolve(foto));
+		} catch (IOException e) {
+			throw new RuntimeException("Erro movendo a foto para destino final", e);
+		}
+	}
 
 	private void criarPastas() {
 		try {
@@ -78,5 +88,6 @@ public class FotoStorageLocal implements FotoStorage {
 		}
 		return novoNome;
 	}
+
 
 }
