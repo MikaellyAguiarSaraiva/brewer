@@ -21,6 +21,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotBlank;
+import org.springframework.util.StringUtils;
 
 import com.algaworks.brewer.validation.SKY;
 
@@ -189,6 +190,10 @@ public class Cerveja {
 
 	public void setContentType(String contentType) {
 		this.contentType = contentType;
+	}
+	
+	public String getFotoOuMock() {
+		return !StringUtils.isEmpty(foto) ? foto : "cerveja-mock.png";
 	}
 
 	@Override
