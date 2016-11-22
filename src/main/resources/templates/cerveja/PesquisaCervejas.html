@@ -31,11 +31,11 @@
 				<div class="row">
 					<div class="col-sm-6 form-group">
 						<label for="sky" class="control-label"> SKU </label>
-						<input type="text" class="form-control" id="sku" autofocus="autofocus" th:field="*{sku}"/>
+						<input type="text" class="form-control" id="sku" autofocus="autofocus" th:field="*{sku}" />
 					</div>
 					<div class="col-sm-6 form-group">
 						<label for="nome" class="control-label"> Nome </label>
-						<input id="nome" type="text" class="form-control" th:field="*{nome}"/>
+						<input id="nome" type="text" class="form-control" th:field="*{nome}" />
 					</div>
 				</div>
 
@@ -78,9 +78,9 @@
 					<div class="col-sm-6 form-group">
 						<label for="valorDe">Valor unitário</label>
 						<div class="form-inline">
-							<input type="text" class="form-control aw-form-control-inline-sm js-decimal" id="valorDe" th:field="*{valorDe}"/>
+							<input type="text" class="form-control aw-form-control-inline-sm js-decimal" id="valorDe" th:field="*{valorDe}" />
 							<label for="valorAte" class="aw-form-label-between">até</label>
-							<input type="text" class="form-control aw-form-control-inline-sm js-decimal" id="valorAte" th:field="*{valorAte}"/>
+							<input type="text" class="form-control aw-form-control-inline-sm js-decimal" id="valorAte" th:field="*{valorAte}" />
 						</div>
 					</div>
 				</div>
@@ -104,7 +104,7 @@
 							<th class="table-cervejas-col-acoes"></th>
 						</tr>
 					</thead>
-					
+
 					<tbody>
 						<tr th:each="cerveja : ${cervejas}">
 							<td class="text-center">
@@ -130,8 +130,34 @@
 					</tbody>
 				</table>
 			</div>
-			
-		</div>			
+
+			<div class="col-sm-12 text-center">
+				<nav>
+					<ul class="pagination pagination-sm">
+						<li class="disabled">
+							<a href="#">
+								<span>&laquo;</span>
+							</a>
+						</li>
+						<li class="active">
+							<a href="#">1</a>
+						</li>
+						<li>
+							<a href="#">2</a>
+						</li>
+						<li>
+							<a href="#">3</a>
+						</li>
+						<li>
+							<a href="#">
+								<span>&raquo;</span>
+							</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+
+		</div>
 	</section>
 </body>
 </html>
