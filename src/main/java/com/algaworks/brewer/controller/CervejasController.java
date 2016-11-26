@@ -3,6 +3,7 @@ package com.algaworks.brewer.controller;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
@@ -65,7 +66,8 @@ public class CervejasController {
 		
 		System.out.println(">>>>> page : " + pageable.getPageNumber());
 		
-		mv.addObject("cervejas", cervejas.filtrar(cervejaFilter, pageable));
+		Page<Cerveja> pagina = cervejas.filtrar(cervejaFilter, pageable);
+		mv.addObject("pagina", pagina);
 		
 		//sintaxe de paginação sem a filtros...
 		//mv.addObject("cervejas", cervejas.findAll(pageable));
