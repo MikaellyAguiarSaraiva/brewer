@@ -118,7 +118,8 @@
 							<span class="text-muted">*</span>
 						</label>
 						<select id="estado" class="form-control">
-							<option value="">SELECIONE O ESTADO</option>
+							<option value="">SELECIONE O ESTILO</option>
+							<option th:each="estado : ${estados}" th:value="${estado.codigo}" th:text="${estado.nome}">Acre</option>
 						</select>
 					</div>
 
